@@ -6,19 +6,25 @@ from Bot import bot as app
 from Bot import LOGGER
 
 pm_start_text = """
-Heya [{}](tg://user?id={}), I'm 🎧 Song Download bot  🎵
-Do /help for know my commands
-A bot by @Damantha_Jasinghe
-Updates channel @ankivectorUpdates
+හේ හේ හිච්චි පුතේ 😇 \n\n දන්නවනේ ඉතින්. මම තමයි අපේ නිපුන් කොලුවගෙ ඇසිස්ටන්ට්.. ඌ දැන් පට්ට බිසී 😅 \n ඉස්සර වගේ නෙවේනෙ පුතේ දැන් වගකීම් එහෙමත් වැඩිනෙ ඒකාට 😅 \n\n ඉතින් පුතේ ඔය හෙල්ප් බටන් එක එබුවම විස්තරේ එයි 😇 ගහලම බලපම්කෝ.. \n\n එහෙනම් හිච්චි පුතේ අපි කැපුනා 🥸
 """
 
 help_text = """
-My commands👇
-- /song <song name>: download songs via Youtube
-- /saavn <song name>: download songs via JioSaavn
-- /deezer <song name>: download songs via Deezer
-- Send youtube url to my pm for download it on audio format
-A bot by @ankivectorUpdates
+ඔන්න පුතේ කමාන්ඩ්ස් ටික👇
+- /song 
+- /saavn 
+- /deezer 
+- 
+මරු හැබැයි 😎
+"""
+
+about_text = """
+ඔන්න පුතේ කමාන්ඩ්ස් ටික👇
+- /song 
+- /saavn 
+- /deezer 
+- 
+මරු හැබැයි 😎
 """
 
 @app.on_message(filters.command("start"))
@@ -31,10 +37,10 @@ async def start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        text="Updates channel", url="https://t.me/ankivectorUpdates"
+                        text="𝑯𝒆𝒍𝒑", callback_data="help_text"
                     ),
                     InlineKeyboardButton(
-                        text="Support Group", url="https://t.me/AnkiSupport_Official"
+                        text="𝑰𝒏𝒃𝒐𝒙", url="https://t.me/NiupunDinujaya"
                     )
                 ]
             ]
@@ -46,7 +52,11 @@ async def start(client, message):
 @app.on_message(filters.command("help"))
 async def start(client, message):
     await message.reply(help_text)
+    
+@app.on_message(filters.command("about"))
+async def start(client, message):
+    await message.reply(about_text)
 
 app.start()
-LOGGER.info("DTSongBot is online.")
+LOGGER.info("බොටා වැඩ පුතේ.")
 idle()
