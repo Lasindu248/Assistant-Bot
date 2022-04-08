@@ -1,62 +1,48 @@
-from pyrogram.types.bots_and_keyboards import reply_keyboard_markup
-from Bot.plugins import *
-from pyrogram import idle, filters
+import os
+from os import error
+import logging
+import pyrogram
+import time
+from decouple import config
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from Bot import bot as app
-from Bot import LOGGER
 
-pm_start_text = """
-හේ හේ හිච්චි පුතේ 😇 \n\n දන්නවනේ ඉතින්. මම තමයි අපේ නිපුන් කොලුවගෙ ඇසිස්ටන්ට්.. ඌ දැන් පට්ට බිසී 😅 \n ඉස්සර වගේ නෙවේනෙ පුතේ දැන් වගකීම් එහෙමත් වැඩිනෙ ඒකාට 😅 \n\n ඉතින් පුතේ ඔය හෙල්ප් බටන් එක එබුවම විස්තරේ එයි 😇 ගහලම බලපම්කෝ.. \n\n එහෙනම් හිච්චි පුතේ අපි කැපුනා 🥸
+KINGAMDA = Client(
+    "king-amda",
+    bot_token = os.environ["BOT_TOKEN"],
+    api_id = int(os.environ["API_ID"]),
+    api_hash = os.environ["API_HASH"]
+)
+
+START_IMG = "https://telegra.ph/file/6a277e0bb77d5c5e87666.jpg"
+
+START_TEXT = """
+හේ හේ හිච්චි පුතේ 😇
+
+දන්නවනේ ඉතින්. මම තමයි අපේ නිපුන් කොලුවගෙ ඇසිස්ටන්ට්.. ඌ දැන් පට්ට බිසී 😅 
+ඉස්සර වගේ නෙවේනෙ පුතේ දැන් වගකීම් එහෙමත් වැඩිනෙ ඒකාට 😅 
+
+ඉතින් පුතේ ඔය හෙල්ප් බටන් එක එබුවම විස්තරේ එයි 😇 ගහලම බලපම්කෝ.. 
+
+එහෙනම් හිච්චි පුතේ අපි කැපුනා 🥸
 """
 
-help_text = """
-ඔන්න පුතේ කමාන්ඩ්ස් ටික👇
-- /song 
-- /saavn 
-- /deezer 
-- 
-මරු හැබැයි 😎
-"""
+START_BUTTON = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('𝑯𝒆𝒍𝒑', callback_data='HELP_TEXT'),
+        InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙',callback_data='infoan_me')
+        ]]
+)
 
-about_text = """
-ඔන්න පුතේ කමාන්ඩ්ස් ටික👇
-- /song 
-- /saavn 
-- /deezer 
-- 
-මරු හැබැයි 😎
-"""
+@KINGAMDA.on_message(filters.private & filters.command(["start"]))
+async def start(bot, update):
+    await update.reply_photo(START_IMG)
+    await update.reply_text(
+        text=START_TEXT.format(update.from_user.mention),
+        reply_markup=START_BUTTON,
+        disable_web_page_preview=True,
+        quote=True
+        
+)    
 
-@app.on_message(filters.command("start"))
-async def start(client, message):
-    chat_id = message.chat.id
-    user_id = message.from_user["id"]
-    name = message.from_user["first_name"]
-    if message.chat.type == "private":
-        btn = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        text="𝑯𝒆𝒍𝒑", callback_data="help_text"
-                    ),
-                    InlineKeyboardButton(
-                        text="𝑰𝒏𝒃𝒐𝒙", url="https://t.me/NiupunDinujaya"
-                    )
-                ]
-            ]
-        )
-    else:
-        btn = None
-    await message.reply(pm_start_text.format(name, user_id), reply_markup=btn)
-
-@app.on_message(filters.command("help"))
-async def start(client, message):
-    await message.reply(help_text)
-    
-@app.on_message(filters.command("about"))
-async def start(client, message):
-    await message.reply(about_text)
-
-app.start()
-LOGGER.info("බොටා වැඩ පුතේ.")
-idle()
+KINGAMDA.run()        
