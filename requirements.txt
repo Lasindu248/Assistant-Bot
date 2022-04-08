@@ -1,2 +1,6 @@
+pyrogram
+python-decouple
+tgcrypto
 requests
-Pyrogram
+aiohttp
+
