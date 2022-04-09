@@ -63,6 +63,8 @@ async def start(bot, update):
         disable_web_page_preview=True,
         quote=True
         
+)
+        
 @KINGAMDA.on_message(filters.private & filters.command(["help"]))
 async def start(bot, update):
     await update.reply_photo(HELP_IMG)
