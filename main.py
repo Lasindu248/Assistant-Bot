@@ -24,6 +24,10 @@ CONTACT_IMG = "https://telegra.ph/file/03759e625dd1af8c55923.jpg"
 
 WEBSITE_IMG = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
 
+SOCIAL_IMG = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
+
+GITHUB_IMG = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
+
 START_TEXT = """
 හේ හේ හිච්චි පුතේ 😇
 දන්නවනේ ඉතින්. මම තමයි අපේ නිපුන් කොලුවගෙ ඇසිස්ටන්ට්.. ඌ දැන් පට්ට බිසී 😅 
@@ -46,7 +50,7 @@ HELP_TEXT = """
 """
 
 ABOUT_TEXT = """
-ස්ටාර්ට් ටෙක්ස්ට් එකේ තිබ්බ වගේ මේක තමයි පුතෙ නිපුන් කොලුවගෙ ඇසිස්ටන්ට් 😇 \n\n නිපුන්ව කන්ටැක්ට් කරගන්න හැටි , සෝසල් මීඩියා , ගිට්හබ් ප්‍රොෆයිල් එක වගේ ඔක්කොම මේ බොටාගෙ තීනව 🤓 \n\n පහළ තීන බටන් ටික ඔබලා බලාම් 😎 \n\n\n බලපම් ඉතිම් පුතේ 🥸
+ස්ටාර්ට් ටෙක්ස්ට් එකේ තිබ්බ වගේ මේක තමයි පුතෙ නිපුන් කොලුවගෙ ඇසිස්ටන්ට් 😇 \n\n නිපුන්ව කන්ටැක්ට් කරගන්න හැටි , සෝසල් මීඩියා , ගිට්හබ් ප්‍රොෆයිල් එක වගේ ඔක්කොම මේ බොටාගෙ තීනව 🤓 
 """
 
 CONTACT_TEXT = """
@@ -55,6 +59,14 @@ CONTACT_TEXT = """
 
 WEBSITE_TEXT = """
 හේ හේ හිච්චි පුතේ නිපුන් කොලුව වෙබ්සිටෙ එක හැදුවෙ PHP වලින් 😎 \n\n එකෙ උගෙ එක එක ප්‍රොජෙක්ට් තීනව බර්ත්ඩේ ගිෆ්ට් , ප්‍රශ්නවට වගේ .. යට තීන බටන් වලින් ගිහිල්ලම බලාම්කො
+"""
+
+SOCIAL_TEXT = """
+හිච්චි පුතේ අපේ එකාගෙ ඔක්කොම වෙබ්සයිට් යට තීන බටන් එකේ තීන වෙබ්සයිට් එකෙන් ගන්න පුලුවන් 😎 \n ගිහිල්ලම බලාම්කො... \n\n\n බලහම් ඉතින් 😎
+"""
+
+GITHUB_TEXT = """
+හේ හේ හිච්චි පුතේ ඔය තීන්නෙ ප්‍රොජෙක්ට් ටිකක් එක්ක නිපුන් කොලුවගෙ ගිටහබ් ප්‍රොෆයිල් එක 😎 
 """
 
 START_BUTTON = InlineKeyboardMarkup(
@@ -81,6 +93,29 @@ CONTACT_BUTTON = InlineKeyboardMarkup(
 ABOUT_BUTTON = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙', url='http://t.me/NiupunDinujaya')
+        ]]
+)
+
+WEBSITE_BUTTON = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('𝑺𝒐𝒄𝒊𝒂𝒍 𝑴𝒆𝒅𝒊𝒂', url='https://www.lasindu.ml/social.php'),
+        InlineKeyboardButton('𝑯𝒂𝒑𝒑𝒚 𝑩𝒊𝒓𝒕𝒉𝒅𝒂𝒚',url='https://www.lasindu.ml/hbd.php')
+        ],
+        [
+        InlineKeyboardButton('𝑲𝒏𝒐𝒘𝒅𝒍𝒂𝒈𝒆', url='https://www.lasindu.ml/quiz.php'),
+        InlineKeyboardButton('𝑪𝒐𝒗𝒊𝒅',url='https://www.lasindu.ml/covid.php)
+        ]]
+)
+            
+SOCIAL_BUTTON = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('𝑺𝒐𝒄𝒊𝒂𝒍 𝑴𝒆𝒅𝒊𝒂', url='https://www.lasindu.ml/social.php')
+        ]]
+)
+            
+GITHUB_BUTTON = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('𝑮𝒊𝒕𝒉𝒖𝒃', url='https://github.com/Lasindu248')
         ]]
 )
 
@@ -128,5 +163,39 @@ async def start(bot, update):
         
 ) 
 
+@KINGAMDA.on_message(filters.private & filters.command(["website"]))
+async def start(bot, update):
+    await update.reply_photo(WEBSITE_IMG)
+    await update.reply_text(
+        text=WEBSITE_TEXT.format(update.from_user.mention),
+        reply_markup=WEBSITE_BUTTON,
+        disable_web_page_preview=True,
+        quote=True
+        
+) 
+            
+@KINGAMDA.on_message(filters.private & filters.command(["social"]))
+async def start(bot, update):
+    await update.reply_photo(SOCIAL_IMG)
+    await update.reply_text(
+        text=SOCIAL_TEXT.format(update.from_user.mention),
+        reply_markup=SOCIAL_BUTTON,
+        disable_web_page_preview=True,
+        quote=True
+        
+) 
+            
+@KINGAMDA.on_message(filters.private & filters.command(["github"]))
+async def start(bot, update):
+    await update.reply_photo(GITHUB_IMG)
+    await update.reply_text(
+        text=GITHUB_TEXT.format(update.from_user.mention),
+        reply_markup=GITHUB_BUTTON,
+        disable_web_page_preview=True,
+        quote=True
+        
+) 
 
+            
+            
 KINGAMDA.run()  
