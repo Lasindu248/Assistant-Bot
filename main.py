@@ -16,6 +16,14 @@ KINGAMDA = Client(
 
 START_IMG = "https://telegra.ph/file/6a277e0bb77d5c5e87666.jpg"
 
+HELP_IMG = "https://telegra.ph/file/50d549faaddb997964d38.jpg"
+
+ABOUT_IMG = "https://telegra.ph/file/d0fc910ccee655abf8083.jpg"
+
+CONTACT_IMG = "https://telegra.ph/file/03759e625dd1af8c55923.jpg"
+
+WEBSITE_IMG = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
+
 START_TEXT = """
 හේ හේ හිච්චි පුතේ 😇
 දන්නවනේ ඉතින්. මම තමයි අපේ නිපුන් කොලුවගෙ ඇසිස්ටන්ට්.. ඌ දැන් පට්ට බිසී 😅 
@@ -23,27 +31,6 @@ START_TEXT = """
 ඉතින් පුතේ ඔය හෙල්ප් බටන් එක එබුවම විස්තරේ එයි 😇 ගහලම බලපම්කෝ.. 
 එහෙනම් හිච්චි පුතේ අපි කැපුනා 🥸
 """
-
-START_BUTTON = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('𝑹𝒆𝒑𝒐', url='https://github.com/Lasindu248/Assistant-Bot'),
-        InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙',url='https://t.me/NiupunDinujaya')
-        ]]
-)
-
-
-HELP_BUTTON = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙', url='https://t.me/NiupunDinujaya'),
-        InlineKeyboardButton('𝑹𝒆𝒑𝒐',url='https://github.com/Lasindu248/Assistant-Bot')
-        ]]
-)
-
-CONTACT_BUTTON = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙', url='https://t.me/NiupunDinujaya')
-        ]]
-)
 
 HELP_TEXT = """
 පුතේ මේ තීන්නෙ කමාන්ඩ්ස් ටික 👇
@@ -70,26 +57,30 @@ WEBSITE_TEXT = """
 හේ හේ හිච්චි පුතේ නිපුන් කොලුව වෙබ්සිටෙ එක හැදුවෙ PHP වලින් 😎 \n\n එකෙ උගෙ එක එක ප්‍රොජෙක්ට් තීනව බර්ත්ඩේ ගිෆ්ට් , ප්‍රශ්නවට වගේ .. යට තීන බටන් වලින් ගිහිල්ලම බලාම්කො
 """
 
-HELP_IMG = "https://telegra.ph/file/50d549faaddb997964d38.jpg"
+START_BUTTON = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('𝑹𝒆𝒑𝒐', url='https://github.com/Lasindu248/Assistant-Bot'),
+        InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙',url='https://t.me/NiupunDinujaya')
+        ]]
+)
 
-ABOUT_IMG = "https://telegra.ph/file/d0fc910ccee655abf8083.jpg"
 
-CONTACT_IMG = "https://telegra.ph/file/03759e625dd1af8c55923.jpg"
+HELP_BUTTON = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙', url='https://t.me/NiupunDinujaya'),
+        InlineKeyboardButton('𝑹𝒆𝒑𝒐',url='https://github.com/Lasindu248/Assistant-Bot')
+        ]]
+)
 
-WEBSITE_IMG = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
+CONTACT_BUTTON = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙', url='https://t.me/NiupunDinujaya')
+        ]]
+)
 
 ABOUT_BUTTON = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('𝑯𝒆𝒍𝒑', url='http://t.me/NipunPrivateAssistantBot?help'),
-        InlineKeyboardButton('𝑨𝒃𝒐𝒖𝒕',url='http://t.me/NipunPrivateAssistantBot?about')
-        ],
-        [
-        InlineKeyboardButton('𝑪𝒐𝒏𝒕𝒂𝒄𝒕', url='http://t.me/NipunPrivateAssistantBot?contact'),
-        InlineKeyboardButton('𝑾𝒆𝒃𝒔𝒊𝒕𝒆',url='http://t.me/NipunPrivateAssistantBot?website')
-        ],
-        [
-        InlineKeyboardButton('𝑺𝒐𝒄𝒊𝒂𝒍 𝑴𝒆𝒅𝒊𝒂', url='http://t.me/NipunPrivateAssistantBot?social'),
-        InlineKeyboardButton('𝑮𝒊𝒕𝒉𝒖𝒃',url='http://t.me/NipunPrivateAssistantBot?github')
+        InlineKeyboardButton('𝑰𝒏𝒃𝒐𝒙', url='http://t.me/NiupunDinujaya')
         ]]
 )
 
