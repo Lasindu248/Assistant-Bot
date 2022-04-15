@@ -1,17 +1,17 @@
 {
-    "name": "DT-SongBot",
-    "description": "A bot that can download songs.",
+    "name": "Assistant Bot",
+    "description": "The Nipun Assistant Bot. All Details Are Included The Bot.",
     "keywords": [
-        "DTSongBot",
-        "Song Downloader",
+        "LasinduOfficial",
+        "NiupunDinujaya",
         "Telegram Bot",
-        "DT Bots"
+        "Assistant Bot"
     ],
-    "website": "https://damantha.tk/web",
+    "website": "https://www.lasindu.ml",
     "repository": "https://github.com/Lasindu248/TeleBot",
-    "logo": "https://telegra.ph/file/0e9b3fdd3531e65ab53fb.jpg",
+    "logo": "https://avatars.githubusercontent.com/u/93705404?v=4",
 
-    "success_url": "https://t.me/damantha.tk/web",
+    "success_url": "https://t.me/NiupunDinujaya",
     "env": {
         "BOT_TOKEN": {
             "description": "Your Telegram Bot Token from @BotFather",
