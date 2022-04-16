@@ -14,19 +14,21 @@ KINGAMDA = Client(
     api_hash = os.environ["API_HASH"]
 )
 
-START_IMG = "https://telegra.ph/file/6a277e0bb77d5c5e87666.jpg"
+START_STICKER = "CAACAgIAAxkBAAEIpNJiWuv1eyICxhrO5S4rW1GtPlgzhAAChBgAAup12UryWtFUKpG2fyQE"
 
-HELP_IMG = "https://telegra.ph/file/50d549faaddb997964d38.jpg"
+HELP_STICKER = "CAACAgIAAxkBAAEIpNViWuwery3UKAP_XoGcSKD3mwbcmgAC1BgAAn-z2UosweD7BFw4eCQE"
 
-ABOUT_IMG = "https://telegra.ph/file/d0fc910ccee655abf8083.jpg"
+ABOUT_STICKER = "CAACAgIAAxkBAAEIpNpiWuxBIHXtQ22oeh1XaAJRbKEb7QACqhgAAiyP2UoUvDplq4VrLyQE"
 
-CONTACT_IMG = "https://telegra.ph/file/03759e625dd1af8c55923.jpg"
+CONTACT_STICKER = ""
 
-WEBSITE_IMG = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
+WEBSITE_STICKER = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
 
-SOCIAL_IMG = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
+SOCIAL_STICKER = "CAACAgIAAxkBAAEIpOFiWuySGJ3VxPQIBL3kmefEMiYI8QACKxYAAlRp2EoLdzJgp83IySQE"
 
-GITHUB_IMG = "https://telegra.ph/file/1bd95dd19b2e858a90cb0.jpg"
+GITHUB_STICKER = "CAACAgIAAxkBAAEIpN5iWuxxrXt-_maPh0fXg1oudS2tjwACXxkAAtd62UqfuXfbINkg3yQE"
+
+CREDITS_STICKER = "CAACAgIAAxkBAAEIpORiWuytpRF-UfoUPpnCdJF4gcRONgACzxoAAnnx2Upvza882mbpIiQE"
 
 START_TEXT = """
 හේ හේ හිච්චි පුතේ 😇
@@ -121,80 +123,83 @@ GITHUB_BUTTON = InlineKeyboardMarkup(
 
 @KINGAMDA.on_message(filters.private & filters.command(["start"]))
 async def start(bot, update):
-    await update.reply_photo(START_IMG)
-    await update.reply_text(
-        text=START_TEXT.format(update.from_user.mention),
+    await update.reply_photo(
+        START_STICKER,
+        caption=START_TEXT,
         reply_markup=START_BUTTON,
-        disable_web_page_preview=True,
+        parse_mode=ParseMode.MARKDOWN,
         quote=True
-        
 )
         
 @KINGAMDA.on_message(filters.private & filters.command(["help"]))
 async def start(bot, update):
-    await update.reply_photo(HELP_IMG)
-    await update.reply_text(
-        text=HELP_TEXT.format(update.from_user.mention),
+    await update.reply_photo(
+        HELP_STICKER,
+        caption=HELP_TEXT,
         reply_markup=HELP_BUTTON,
-        disable_web_page_preview=True,
+        parse_mode=ParseMode.MARKDOWN,
         quote=True
-        
-)    
+)   
     
 @KINGAMDA.on_message(filters.private & filters.command(["about"]))
 async def start(bot, update):
-    await update.reply_photo(ABOUT_IMG)
-    await update.reply_text(
-        text=ABOUT_TEXT.format(update.from_user.mention),
+    await update.reply_photo(
+        ABOUT_STICKER,
+        caption=ABOUT_TEXT,
         reply_markup=ABOUT_BUTTON,
-        disable_web_page_preview=True,
+        parse_mode=ParseMode.MARKDOWN,
         quote=True
-        
 ) 
     
-@KINGAMDA.on_message(filters.private & filters.command(["contact"]))
-async def start(bot, update):
-    await update.reply_photo(CONTACT_IMG)
-    await update.reply_text(
-        text=CONTACT_TEXT.format(update.from_user.mention),
-        reply_markup=CONTACT_BUTTON,
-        disable_web_page_preview=True,
-        quote=True
-        
-) 
-
-@KINGAMDA.on_message(filters.private & filters.command(["website"]))
-async def start(bot, update):
-    await update.reply_photo(WEBSITE_IMG)
-    await update.reply_text(
-        text=WEBSITE_TEXT.format(update.from_user.mention),
-        reply_markup=WEBSITE_BUTTON,
-        disable_web_page_preview=True,
-        quote=True
-        
-) 
-            
 @KINGAMDA.on_message(filters.private & filters.command(["social"]))
 async def start(bot, update):
-    await update.reply_photo(SOCIAL_IMG)
-    await update.reply_text(
-        text=SOCIAL_TEXT.format(update.from_user.mention),
+    await update.reply_photo(
+        SOCIAL_STICKER,
+        caption=SOCIAL_TEXT,
         reply_markup=SOCIAL_BUTTON,
-        disable_web_page_preview=True,
+        parse_mode=ParseMode.MARKDOWN,
         quote=True
-        
 ) 
-            
+
 @KINGAMDA.on_message(filters.private & filters.command(["github"]))
 async def start(bot, update):
-    await update.reply_photo(GITHUB_IMG)
-    await update.reply_text(
-        text=GITHUB_TEXT.format(update.from_user.mention),
+    await update.reply_photo(
+        GITHUB_STICKER,
+        caption=GITHUB_TEXT,
         reply_markup=GITHUB_BUTTON,
-        disable_web_page_preview=True,
+        parse_mode=ParseMode.MARKDOWN,
         quote=True
-        
 ) 
+            
+@KINGAMDA.on_message(filters.private & filters.command(["website"]))
+async def start(bot, update):
+    await update.reply_photo(
+        WEBSITE_STICKER,
+        caption=WEBSITE_TEXT,
+        reply_markup=WEBSITE_BUTTON,
+        parse_mode=ParseMode.MARKDOWN,
+        quote=True
+) 
+            
+@KINGAMDA.on_message(filters.private & filters.command(["contact"]))
+async def start(bot, update):
+    await update.reply_photo(
+        CONTACT_STICKER,
+        caption=CONTACT_TEXT,
+        reply_markup=CONTACT_BUTTON,
+        parse_mode=ParseMode.MARKDOWN,
+        quote=True
+) 
+            
+@KINGAMDA.on_message(filters.private & filters.command(["credits"]))
+async def start(bot, update):
+    await update.reply_photo(
+        CREDITS_STICKER,
+        caption=CREDITS_TEXT,
+        reply_markup=CREDITS_BUTTON,
+        parse_mode=ParseMode.MARKDOWN,
+        quote=True
+)
 
             
             
